@@ -1,0 +1,157 @@
+// tema lab
+class EratosteneSieveService {
+   
+    val MAX_SIZE = 1000001
+
+    fun createsir(n: Int): List<Int> {
+        val sir: MutableList<Int> = ArrayList()
+        sir.add(1) //a0
+        for (i in 1 until n)
+        {
+            val nextElem=sir[i-1]+2*sir[i-1]/i;
+            sir.add(nextElem)
+        }
+        return sir
+    }
+
+    init {
+    }
+}
+
+//subiect examen multimi a reunit b = c
+@Singleton
+class EratosteneSieveService {
+
+    val A : MutableList<Int> = ArrayList(100)
+    val B : MutableList<Int> = ArrayList(100)
+
+    fun crearesir(): List<Int> {
+
+        for (i in 0 until 99)
+        {
+            var x = (Math.random()*1000).toInt()
+            while(A.contains(x))
+                x = (Math.random()*1000).toInt()
+            A.add(x)
+
+            var y = (Math.random()*1000).toInt()
+            while(B.contains(y))
+                y = (Math.random()*1000).toInt()
+            B.add(y)
+        }
+
+        val C = A.toMutableList()
+        for (i in 0 until 99)
+            if (!(C.contains(B[i])))
+                C.add(B[i])
+
+    return C.toList().sorted()
+    }
+}
+
+@Singleton
+class EratosteneSieveService {
+
+    val A : MutableList<Int> = ArrayList(10)
+    val B : MutableList<Int> = ArrayList(10)
+
+    fun crearesir(): List<Int> {
+
+        for (i in 0 until 10)
+        {
+            var x = (Math.random()*100).toInt()
+            A.add(x)
+
+            var y = (Math.random()*100).toInt()
+            B.add(y)
+        }
+
+        var C : MutableList<Int> = ArrayList(20)
+        for (i in 0 until 10) {
+            C.add(A[i])
+            C.add(B[i])
+        }
+
+    return C.toList()
+    }
+}
+//perechi ce satisfac conditia
+@Singleton
+class EratosteneSieveService {
+
+    val A: MutableList<Int> = ArrayList(10)
+    val B: MutableList<Int> = ArrayList(10)
+
+    fun crearesir(): Vector<Pair<Int, Int>> {
+
+        for (i in 0 until 10) {
+            var x = (Math.random() * 100).toInt()
+            A.add(x)
+
+            var y = (Math.random() * 100).toInt()
+            B.add(y)
+        }
+
+        var C = Vector<Pair<Int, Int>>(20)
+        for (a in A)
+            for (b in B)
+                if (a * b == a + b * 3)
+                    C.add(Pair(a, b))
+
+
+        if (C.size == 0)
+            C.addElement(Pair(-999999, -999999))
+
+        return C
+    }
+}
+@Singleton
+class EratosteneSieveService {
+
+    val MAX_SIZE = 100
+
+    private val A = List(100){ Random.nextInt(0, MAX_SIZE)}.sorted()
+    private val B = List(100){ Random.nextInt(0, MAX_SIZE)}.sorted()
+
+    fun findNumbers(): List<Pair<Int, Int>>{
+        val result = mutableListOf<Pair<Int, Int>>()
+
+        A.forEach {
+                a ->
+            B.forEach loop@{
+                    b->
+                if( a * b == a + ( b * 3)) result += Pair(a, b)
+            }
+        }
+
+        return result.toList()
+    }
+
+}
+@Singleton
+class EratosteneSieveService {
+
+    val A: MutableList<Int> = ArrayList(10)
+
+    fun suma(A:MutableList<Int>, k: Int):Int{
+        var s:Int=0
+        for (i in 0 until k+1)
+            s+=A[i]*A[i]
+
+        return s
+    }
+    fun crearesir(): List<Int> {
+
+        val B: MutableList<Int> = ArrayList(10)
+
+        for (i in 0 until 10) {
+            var x = (Math.random() * 100).toInt()
+            A.add(x)
+        }
+
+        for (i in 0 until 10)
+            B.add(suma(A,i))
+
+        return B
+    }
+}
